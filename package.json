@@ -14,6 +14,7 @@
   "scripts": {
     "build": "vue-cli-service build --target lib --name vue-hoarder src/vue-hoarder.ts",
     "lint": "vue-cli-service lint",
+    "test": "echo success",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },

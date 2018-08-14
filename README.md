@@ -1,13 +1,12 @@
-# vue-hoarder
+# VueHoarder
+
+### This project is a WIP...
+
+Plugin for stashing the bytes. Works with LocalStorage, SessionStorage, Cookies and Map.
 
 ## Project setup
 ```
 yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
 ```
 
 ### Compiles and minifies for production

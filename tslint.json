@@ -14,6 +14,13 @@
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false
+    "no-consecutive-blank-lines": false,
+    "semicolon": {
+      "options": "never"
+    },
+    "max-classes-per-file": false,
+    "trailing-comma": false,
+    "no-namespace": false,
+    "space-before-function-paren": false
   }
 }

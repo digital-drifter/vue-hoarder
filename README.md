@@ -1,5 +1,7 @@
 # VueHoarder
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/digital-drifter/vue-hoarder.svg)](https://greenkeeper.io/)
+
 ### This project is a WIP...
 
 Plugin for stashing the bytes. Works with LocalStorage, SessionStorage, Cookies and Map.

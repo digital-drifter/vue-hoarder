@@ -4,7 +4,7 @@ cache:
     - ~/.npm
 notifications:
   email: false
-before_script:
+before_install:
   - yarn config set ignore-engines true
 node_js:
   - '10'

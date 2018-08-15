@@ -1,43 +1,49 @@
 import * as VueHoarder from '../'
 
 export default abstract class BaseHoarder implements VueHoarder.StorageHandler {
-  private readonly accessor: (name: string) => any | undefined
-  private readonly destructor?: (name: string) => boolean | number | void
-  private readonly mutator: (name: string, value: any) => void
+  private readonly actions: VueHoarder.StorageHandler.ActionMap
   private readonly storage: any
 
-  protected constructor (options: VueHoarder.StorageHandler.Options) {
-    this.accessor = options.accessor
-    this.destructor = options.destructor
-    this.mutator = options.mutator
-    this.storage = options.storage
+  protected constructor ({ actions, storage }: VueHoarder.StorageHandler.Options) {
+    this.actions = actions
+    this.storage = storage
   }
 
   public all (name: string, options?: any): any | any[] | undefined {
-    return undefined
+    if (typeof this.actions.all !== 'undefined') {
+      return this.actions.all.apply(this.storage, [options])
+    }
   }
 
   public clear (): void {
-    // TODO
+    if (typeof this.actions.clear !== 'undefined') {
+      return this.actions.clear.apply(this.storage)
+    }
   }
 
   public get (name: string | number | symbol, options?: any): any | undefined {
-    return this.accessor.apply(this.storage, [name, options])
+    return this.actions.get.apply(this.storage, [name, options])
   }
 
-  public has (name: string | number | symbol, options?: any): boolean {
-    return this.accessor.apply(this.storage, [name, options])
+  public has (name: string | number | symbol, options?: any): boolean | undefined {
+    if (typeof this.actions.has !== 'undefined') {
+      return this.actions.has.apply(this.storage, [name, options])
+    }
   }
 
   public remove (name: string | number | symbol, options?: any): boolean | number | void | undefined {
-    if (this.destructor && this.has(name, options)) {
-      return this.destructor.apply(this.storage, [name])
+    if (typeof this.actions.remove !== 'undefined') {
+      return this.actions.remove.apply(this.storage, [name])
     }
-
-    return 0
   }
 
   public set (name: string | number | symbol, value: any, options?: any): void {
-    this.mutator.apply(this, [name, value, options])
+    this.actions.set.apply(this, [name, value, options])
+  }
+
+  public size (): number | undefined {
+    if (typeof this.actions.size !== 'undefined') {
+      return this.actions.size.apply(this)
+    }
   }
 }

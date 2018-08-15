@@ -5,9 +5,12 @@ export default class SessionStorageHoarder extends BaseHoarder {
     const { getItem, key, length, removeItem, setItem, clear } = window.sessionStorage
 
     super({
-      accessor: getItem,
-      destructor: removeItem,
-      mutator: setItem,
+      actions: {
+        clear,
+        get: getItem,
+        remove: removeItem,
+        set: setItem
+      },
       storage: window.sessionStorage
     })
   }

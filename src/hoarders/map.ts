@@ -6,9 +6,13 @@ export default class MapHoarder extends BaseHoarder {
     const { get, set, has, clear, keys, size } = storage
 
     super({
-      accessor: get,
-      destructor: storage.delete,
-      mutator: set,
+      actions: {
+        clear,
+        get,
+        has,
+        remove: storage.delete,
+        set
+      },
       storage
     })
   }

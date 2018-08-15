@@ -26,6 +26,7 @@
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
+    "@types/universal-cookie": "^2.2.0",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-typescript": "^3.0.0",
     "@vue/cli-service": "^3.0.0",

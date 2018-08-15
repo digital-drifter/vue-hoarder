@@ -4,13 +4,9 @@ import { Options } from '.'
 
 class VueHoaderPlugin implements PluginObject<Options> {
   public install: PluginFunction<Options> = (vm: VueConstructor<Vue>, options?: Options) => {
-    options = options || {
-      storage: 'map'
-    }
-
     let hoarder: Hoarders.BaseHoarder
 
-    switch (options.storage) {
+    switch ((options && options.storage) || 'map') {
       case 'cookie':
         hoarder = new Hoarders.CookieHoarder()
         break
@@ -24,7 +20,7 @@ class VueHoaderPlugin implements PluginObject<Options> {
         hoarder = new Hoarders.SessionStorageHoarder()
         break
       default:
-        throw new Error(`Unsupported storage type: ${options.storage}`)
+        throw new Error(`Unsupported storage type: ${(options && options.storage)}`)
     }
 
     Object.defineProperty(vm.prototype, '$hoarder', {

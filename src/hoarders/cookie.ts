@@ -5,11 +5,13 @@ export default class CookieHoarder extends BaseHoarder {
   constructor () {
     const storage = new Cookies()
 
-    const { get, set } = storage
+    const { get, getAll, remove, set } = storage
 
     super({
       actions: {
+        all: getAll,
         get,
+        remove,
         set
       },
       storage

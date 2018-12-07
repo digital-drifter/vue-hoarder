@@ -33,7 +33,7 @@
     "semantic-release": "^15.9.8",
     "travis-deploy-once": "^5.0.2",
     "typescript": "^3.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.18"
   },
   "repository": {
     "type": "git",

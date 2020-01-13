@@ -22,7 +22,7 @@
     "@greenkeeper/jobs": "greenkeeperio/greenkeeper",
     "universal-cookie": "^3.0.0",
     "vue": "^2.5.17",
-    "vue-class-component": "^6.2.0",
+    "vue-class-component": "^7.2.2",
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {

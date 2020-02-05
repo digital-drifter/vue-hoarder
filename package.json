@@ -23,7 +23,7 @@
     "universal-cookie": "^3.0.0",
     "vue": "^2.5.17",
     "vue-class-component": "^6.2.0",
-    "vue-property-decorator": "^7.0.0"
+    "vue-property-decorator": "^8.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",
